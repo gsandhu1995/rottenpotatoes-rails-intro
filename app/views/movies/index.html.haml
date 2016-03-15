@@ -1,12 +1,12 @@
 -#  This file is app/views/movies/index.html.haml
 %h1 All Movies
 
-%table#movies{class: 'foo'}
+%table#movies
   %thead
     %tr
-      %th Movie Title
+      %th= link_to "Movie Title",movies_path
       %th Rating
-      %th Release Date
+      %th= link_to "Release date", movies_path
       %th More Info
   %tbody
     - @movies.each do |movie|
