@@ -8,10 +8,33 @@ class MoviesController < ApplicationController
     id = params[:id] # retrieve movie ID from URI route
     @movie = Movie.find(id) # look up movie by unique ID
     # will render app/views/movies/show.<extension> by default
+    
   end
 
   def index
+    
+    # sort=params[:sort]
+    # @sort=sort
+    # session[:sort]=sort
+    # @filterRating=[]
+    # @ratingHash={}
+    # if(params[:rating])
+    #   params[:rating].each {|x|
+    #     @filterRating.push x
+    #     @ratingHash [x]=x
+    #   }
+    #   @movies=Movie.find(:all,:order=>sort,:conditions => {:rating => @filterRating})
+    #   session[:rating]=@ratingHash
+    # else
+    #   if(session[:rating])
+    #     flash.keep
+    #     redirect_to movies_path(:sort => session[:sort], ratings => session[:rating])
+    #   end
+    #   @movies=Movie.all(:order => sort)
+    # end
     @movies = Movie.all
+    
+     @ratings=["G","PG","PG-13","R"]
   end
 
   def new
